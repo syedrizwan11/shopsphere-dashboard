@@ -16,6 +16,7 @@
   --gray: #888888;
   --blue: #1a71f6;
   --lightblue: #d9edff;
+
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -64,6 +65,7 @@
   --text-tertiary: var(--gray);
   --bg-primary: var(--darkMuda);
   --bg-secondary: var(--darkTua);
+
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
@@ -108,10 +110,13 @@
   --color-lightblue: var(--lightblue);
   --color-grayDark: var(--grayDark);
   --color-charcoal: var(--charcoal);
+  --color-gray: var(--gray);
+  --color-blue: var(--blue);
 
   --text-md: 1rem;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
