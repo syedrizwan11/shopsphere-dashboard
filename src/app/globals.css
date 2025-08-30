@@ -112,6 +112,7 @@
   --color-charcoal: var(--charcoal);
   --color-gray: var(--gray);
   --color-blue: var(--blue);
+  --color-grayMedium: var(--grayMedium);
 
   --text-md: 1rem;
   --font-sans: var(--font-geist-sans);
@@ -161,4 +162,18 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--text-tertiary);
+  border-radius: 9999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background-color: var(--bg-primary);
 }

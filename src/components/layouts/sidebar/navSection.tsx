@@ -7,9 +7,10 @@ export interface NavSectionProps {
   icon: React.ReactNode
   text: string
   href: string
+  expanded?: boolean
 }
 
-export const NavSection = ({ icon, text, href }: NavSectionProps) => {
+export const NavSection = ({ icon, text, href, expanded }: NavSectionProps) => {
   const path = usePathname()
 
   return (
@@ -17,13 +18,13 @@ export const NavSection = ({ icon, text, href }: NavSectionProps) => {
       href={href}
       className={clsx(
         "flex gap-3 items-center p-3 rounded-2xl cursor-pointer",
-        path === href
+        path.includes(text.toLowerCase())
           ? "bg-lightblue text-grayDark font-bold"
           : "text-textTertiary"
       )}
     >
       <div className="text-2xl">{icon}</div>
-      <div>{text}</div>
+      {expanded && <div>{text}</div>}
     </Link>
   )
 }

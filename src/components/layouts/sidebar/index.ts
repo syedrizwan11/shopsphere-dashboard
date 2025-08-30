@@ -1,2 +1,6 @@
 export { NavSection } from "./navSection"
 export { CollapsibleNavSection } from "./CollapsibleNavSection"
+export { UserCompanyInfo } from "./UserCompanyInfo"
+export { SideBar } from "./SideBar"
+export { SidebarHeader } from "./SideBarHeader"
+export { SideBarNavSections } from "./SideBarNavSections"

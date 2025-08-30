@@ -7,7 +7,6 @@ import {
   LucideIcon,
   Settings,
   HelpCircle,
-  Moon,
 } from "lucide-react" // or any icon library
 
 export type NavItem = {
@@ -18,25 +17,26 @@ export type NavItem = {
   children?: NavItem[]
 }
 
-export type NavSection = {
+export type INavSection = {
   title?: string
   items: NavItem[]
 }
 
-export const navSections: NavSection[] = [
+export const navSections: INavSection[] = [
   {
     title: "GENERAL",
     items: [
       { label: "Dashboard", href: "/", icon: House },
       {
         label: "Products",
-        href: "/products",
+        href: "/products/sneakers",
         icon: Store,
         children: [
           { label: "Sneakers", href: "/products/sneakers" },
           { label: "Jacket", href: "/products/jacket" },
           { label: "T-Shirt", href: "/products/t-shirt" },
           { label: "Bag", href: "/products/bag" },
+          // { label: "Add Products", href: "/products/add" },
         ],
       },
       { label: "Transactions", href: "/transactions", icon: CreditCard },
@@ -49,7 +49,6 @@ export const navSections: NavSection[] = [
     items: [
       { label: "Account & Settings", href: "/settings", icon: Settings },
       { label: "Help", href: "/help", icon: HelpCircle },
-      { label: "Dark Mode", icon: Moon }, // this one can be a toggle instead of link
     ],
   },
 ]

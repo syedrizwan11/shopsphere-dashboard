@@ -1,50 +1,44 @@
-import Image from "next/image"
-import { CollapsibleNavSection, NavSection } from "."
+"use client"
+
+import { useState } from "react"
+import { ToggleNightMode } from "@/components/ToggleNightMode"
+import { SideBarNavSections, UserCompanyInfo } from "."
 import { navSections } from "@/config/navigation"
+import { cn } from "@/lib/utils"
+import { SidebarHeader } from "./SideBarHeader"
 
 export const SideBar = () => {
+  const [expanded, setExpanded] = useState(true)
+
   return (
-    <div className="w-72 min-h-screen bg-bgPrimary p-4 text-sm">
-      <div className="rounded-xl flex py-1 px-4 border border-gray-300 items-center">
-        <Image
-          src="/images/company-logo.png"
-          alt="compony-logo"
-          height={50}
-          width={50}
-        />
-        <div className="shrink-0"></div>
-        <div>
-          <p className="text-textTertiary">Company</p>
-          <p className="text-primary font-bold">Lanky Store</p>
+    <aside
+      className={cn(
+        "bg-sidebar min-h-screen border-r border-border transition-[width] duration-300 ease-in-out",
+        expanded ? "w-72 p-4" : "w-16 p-2"
+      )}
+    >
+      <SidebarHeader
+        expanded={expanded}
+        onToggle={() => setExpanded(!expanded)}
+      />
+
+      <UserCompanyInfo fullView={expanded} />
+
+      <div className="flex flex-col h-[calc(100%-5rem)] justify-between">
+        <nav className="flex-1 overflow-y-auto custom-scrollbar mt-6">
+          {navSections.map((section, idx) => (
+            <SideBarNavSections
+              key={`${section.title}-${idx}`}
+              section={section}
+              expanded={expanded}
+            />
+          ))}
+        </nav>
+
+        <div className="pt-4">
+          <ToggleNightMode expanded={expanded} />
         </div>
       </div>
-
-      {navSections.map((section, idx) => (
-        <div key={`${section.title} ${idx}`}>
-          <div className="text-textTertiary text-md ps-2 mt-8 mb-3">
-            {section.title}
-          </div>
-
-          {section.items.map(({ label, icon: Icon, href, children }) =>
-            label.toLowerCase() === "products" ? (
-              <CollapsibleNavSection
-                key={label}
-                icon={Icon && <Icon />}
-                text={label}
-                href={href || ""}
-                subSections={children}
-              />
-            ) : (
-              <NavSection
-                key={label}
-                icon={Icon && <Icon />}
-                text={label}
-                href={href || ""}
-              />
-            )
-          )}
-        </div>
-      ))}
-    </div>
+    </aside>
   )
 }
