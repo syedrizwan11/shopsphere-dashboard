@@ -7,7 +7,7 @@ interface SidebarSectionProps {
   expanded: boolean
 }
 
-export const SideBarNavSections = ({
+export const SideBarNavSectionContainer = ({
   section,
   expanded,
 }: SidebarSectionProps) => (

@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { ToggleNightMode } from "@/components/ToggleNightMode"
-import { SideBarNavSections, UserCompanyInfo } from "."
+import { SideBarNavSectionContainer, UserCompanyInfo } from "."
 import { navSections } from "@/config/navigation"
 import { cn } from "@/lib/utils"
 import { SidebarHeader } from "./SideBarHeader"
@@ -27,7 +27,7 @@ export const SideBar = () => {
       <div className="flex flex-col h-[calc(100%-5rem)] justify-between">
         <nav className="flex-1 overflow-y-auto custom-scrollbar mt-6">
           {navSections.map((section, idx) => (
-            <SideBarNavSections
+            <SideBarNavSectionContainer
               key={`${section.title}-${idx}`}
               section={section}
               expanded={expanded}
