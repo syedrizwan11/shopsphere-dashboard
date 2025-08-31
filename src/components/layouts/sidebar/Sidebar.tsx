@@ -13,7 +13,7 @@ export const SideBar = () => {
   return (
     <aside
       className={cn(
-        "bg-sidebar min-h-screen border-r border-border transition-[width] duration-300 ease-in-out",
+        "bg-sidebar min-h-screen border-r border-border transition-all duration-200 ease-in-out",
         expanded ? "w-72 p-4" : "w-16 p-2"
       )}
     >
@@ -24,8 +24,8 @@ export const SideBar = () => {
 
       <UserCompanyInfo fullView={expanded} />
 
-      <div className="flex flex-col h-[calc(100%-5rem)] justify-between">
-        <nav className="flex-1 overflow-y-auto custom-scrollbar mt-6">
+      <div className="flex flex-col justify-between">
+        <nav className="flex-1 mt-6">
           {navSections.map((section, idx) => (
             <SideBarNavSectionContainer
               key={`${section.title}-${idx}`}
@@ -35,7 +35,7 @@ export const SideBar = () => {
           ))}
         </nav>
 
-        <div className="pt-4">
+        <div>
           <ToggleNightMode expanded={expanded} />
         </div>
       </div>

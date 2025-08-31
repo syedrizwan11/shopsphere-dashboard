@@ -12,9 +12,9 @@ export const SidebarHeader = ({ expanded, onToggle }: SidebarHeaderProps) => (
     <button
       aria-label={expanded ? "Collapse sidebar" : "Expand sidebar"}
       onClick={onToggle}
-      className="p-2 rounded-md hover:bg-muted transition-colors"
+      className="p-2 rounded-md hover:bg-cyan-500 hover:text-white cursor-pointer transition-all"
     >
-      {expanded ? <PanelLeftClose size={20} /> : <PanelRightClose size={20} />}
+      {expanded ? <PanelLeftClose size={30} /> : <PanelRightClose size={30} />}
     </button>
   </div>
 )

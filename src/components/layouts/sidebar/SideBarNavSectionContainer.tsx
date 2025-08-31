@@ -11,7 +11,7 @@ export const SideBarNavSectionContainer = ({
   section,
   expanded,
 }: SidebarSectionProps) => (
-  <div className="mb-6">
+  <div className="mb-6 last:mb-0">
     {expanded && (
       <div className="text-xs font-semibold text-muted-foreground px-2 mb-3 tracking-wide uppercase">
         {section.title}

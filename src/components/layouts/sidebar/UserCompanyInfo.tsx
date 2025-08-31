@@ -8,7 +8,7 @@ export const UserCompanyInfo = ({ fullView }: UserCompanyInfoProps) => {
     <div
       className={cn(
         "rounded-xl flex py-1 px-4 border border-gray-300 items-center",
-        !fullView && "px-2 w-12 h-12"
+        !fullView && "px-2"
       )}
     >
       {fullView ? (
