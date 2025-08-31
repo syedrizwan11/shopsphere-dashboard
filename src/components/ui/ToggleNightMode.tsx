@@ -1,7 +1,7 @@
 "use client"
 import { Moon } from "lucide-react"
-import { NavSection } from "./layouts/sidebar"
-import { Switch } from "./ui/switch"
+import { NavSection } from "../layouts/sidebar"
+import { Switch } from "../primitives/switch"
 import { cn } from "@/lib/utils"
 interface ToggleNightModeProps {
   expanded?: boolean

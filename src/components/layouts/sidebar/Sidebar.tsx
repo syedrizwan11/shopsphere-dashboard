@@ -1,4 +1,4 @@
-import { ToggleNightMode } from "@/components/ToggleNightMode"
+import { ToggleNightMode } from "@/components/ui/ToggleNightMode"
 import { SideBarNavSectionContainer, UserCompanyInfo } from "."
 import { navSections } from "@/config/navigation"
 import { cn } from "@/lib/utils"

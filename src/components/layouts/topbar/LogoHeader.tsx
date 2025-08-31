@@ -1,4 +1,4 @@
-import { AppLogo } from "@/components/AppLogo"
+import { AppLogo } from "@/components/ui/AppLogo"
 import { cn } from "@/lib/utils"
 import { PanelLeftClose } from "lucide-react"
 

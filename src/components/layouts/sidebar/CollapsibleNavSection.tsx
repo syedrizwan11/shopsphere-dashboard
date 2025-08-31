@@ -4,7 +4,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion"
+} from "@/components/primitives/accordion"
 import { NavSectionProps } from "./navSection"
 import { NavItem } from "@/config/navigation"
 import Link from "next/link"
