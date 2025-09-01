@@ -14,10 +14,10 @@ export const SideBar = ({ expandedSideBar }: SideBarProps) => {
         "bg-bgPrimary sm:min-h-screen transition-all duration-200 ease-in-out",
         expandedSideBar
           ? "sm:w-fixedSideBar w-full sm:static absolute p-4"
-          : "w-16 p-2 h-topBar"
+          : "w-16 p-2 h-topBar sm:block hidden"
       )}
     >
-      <div className={expandedSideBar ? "" : "sm:block hidden"}>
+      <div>
         <UserCompanyInfo fullView={expandedSideBar} />
 
         <div className="flex flex-col justify-between">

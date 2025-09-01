@@ -14,7 +14,7 @@ export const MainLayout = ({ children }: { children: ReactNode }) => {
       />
       <div className="flex relative">
         <SideBar expandedSideBar={expandedSideBar} />
-        <div>{children}</div>
+        <div className="p-4 px-5">{children}</div>
       </div>
     </div>
   )
