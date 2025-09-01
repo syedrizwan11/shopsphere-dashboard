@@ -18,6 +18,9 @@
   --blue: #1a71f6;
   --lightblue: #d9edff;
 
+  --topBarHeight: 4rem;
+  --SideBarWidth: 18rem;
+
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -119,8 +122,8 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
-  --spacing-topBar: 4rem;
-  --spacing-fixedSideBar: 18rem;
+  --spacing-topBar: var(--topBarHeight);
+  --spacing-fixedSideBar: var(--SideBarWidth);
 
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
