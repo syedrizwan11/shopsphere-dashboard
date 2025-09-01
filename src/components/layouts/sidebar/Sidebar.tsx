@@ -2,6 +2,7 @@ import { ToggleNightMode } from "@/components/ui"
 import { SideBarNavSectionContainer, UserCompanyInfo } from "."
 import { navSections } from "@/config/navigation"
 import { cn } from "@/lib/utils"
+import { UserInfoBadge } from "@/components/ui/UserInfoBadge"
 
 interface SideBarProps {
   expandedSideBar: boolean
@@ -31,9 +32,9 @@ export const SideBar = ({ expandedSideBar }: SideBarProps) => {
             ))}
           </nav>
 
-          <div>
-            <ToggleNightMode expanded={expandedSideBar} />
-          </div>
+          <ToggleNightMode expanded={expandedSideBar} />
+          <br />
+          <UserInfoBadge expanded={expandedSideBar} />
         </div>
       </div>
     </aside>

@@ -8,7 +8,7 @@ interface LogoHeaderProps {
 }
 
 export const LogoHeader = ({ expanded, onToggle }: LogoHeaderProps) => (
-  <div className="flex items-center justify-start gap-4 mb-6">
+  <div className="flex items-center justify-start gap-4">
     <button
       aria-label={expanded ? "Collapse sidebar" : "Expand sidebar"}
       onClick={onToggle}
