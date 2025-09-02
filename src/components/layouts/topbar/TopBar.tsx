@@ -17,7 +17,7 @@ export const TopBar = ({
       <LogoHeader expanded={expandedSideBar} onToggle={toggleExpandedSideBar} />
       <div className="flex gap-4 items-center">
         <Bell />
-        <UserInfoBadge expanded />
+        <UserInfoBadge collapseOnSmallScreens expanded />
       </div>
     </div>
   )
