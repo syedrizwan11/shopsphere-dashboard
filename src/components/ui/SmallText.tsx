@@ -7,8 +7,6 @@ interface SmallTextProps {
 }
 export const SmallText = ({ children, className }: SmallTextProps) => {
   return (
-    <div className={cn("text-sm font-semibold text-textTertiary", className)}>
-      {children}
-    </div>
+    <div className={cn("text-sm text-textTertiary", className)}>{children}</div>
   )
 }

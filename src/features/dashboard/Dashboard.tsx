@@ -1,4 +1,5 @@
 import {
+  AnalyticalSlider,
   LargeHeading,
   MultipleLineChart,
   MultipleLineChartProps,
@@ -27,8 +28,9 @@ export const Dashboard = () => {
     <div>
       <LargeHeading>Dashboard</LargeHeading>
       <SmallText>Dashboard</SmallText>
-      <div className="flex gap-8 sm:flex-row flex-col">
-        <div className="basis-3/5">
+      <div className="flex gap-8 sm:flex-row flex-col mt-6">
+        <div className="basis-3/5 flex flex-col gap-2">
+          <AnalyticalSlider />
           <MultipleLineChart
             chartData={chartData}
             chartColors={{
