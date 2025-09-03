@@ -4,6 +4,7 @@ export { SmallHeading } from "./SmallHeading"
 export { SmallText } from "./SmallText"
 export { AnalyticalSlider } from "./AnalyticalSlider"
 export {} from "."
+export { StatCard } from "./StatCard"
 export {
   MultipleLineChart,
   type MultipleLineChartProps,

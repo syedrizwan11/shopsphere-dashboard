@@ -12,7 +12,7 @@ export const SideBar = ({ expandedSideBar }: SideBarProps) => {
   return (
     <aside
       className={cn(
-        "bg-bgPrimary sm:min-h-[calc(100vh-var(--topBarHeight))] transition-all duration-200 ease-in-out",
+        "bg-bgPrimary text-sm sm:min-h-[calc(100vh-var(--topBarHeight))] transition-all duration-200 ease-in-out",
         expandedSideBar
           ? "sm:w-fixedSideBar w-full sm:static absolute p-4"
           : "w-16 p-2 h-topBar sm:block hidden"

@@ -7,7 +7,9 @@ interface SmallHeadingProps {
 }
 export const SmallHeading = ({ children, className }: SmallHeadingProps) => {
   return (
-    <div className={cn("text-lg font-semibold text-textSecondary", className)}>
+    <div
+      className={cn("text-[1rem] font-semibold text-textSecondary", className)}
+    >
       {children}
     </div>
   )

@@ -4,6 +4,7 @@ import {
   MultipleLineChart,
   MultipleLineChartProps,
   SmallText,
+  StatCard,
 } from "@/components/ui"
 
 type ChartKeys = "averageSaleValue" | "totalOrders"
@@ -28,8 +29,8 @@ export const Dashboard = () => {
     <div>
       <LargeHeading>Dashboard</LargeHeading>
       <SmallText>Dashboard</SmallText>
-      <div className="flex gap-8 sm:flex-row flex-col mt-6">
-        <div className="basis-3/5 flex flex-col gap-2">
+      <div className="flex gap-3 sm:flex-row flex-col mt-6">
+        <div className="basis-3/5 flex flex-col gap-3">
           <AnalyticalSlider />
           <MultipleLineChart
             chartData={chartData}
@@ -37,6 +38,46 @@ export const Dashboard = () => {
               averageSaleValue: "var(--color-lime-400)",
               totalOrders: "var(--color-blue-500)",
             }}
+          />
+        </div>
+        <div className="flex flex-col gap-3 justify-stretch basis-2/5">
+          <div className="flex flex-wrap items-stretch gap-3 h-full">
+            <StatCard
+              className="grow-1"
+              text="Total Revenue"
+              value="$81.0"
+              percentage={10.6}
+              isTrendingUp
+            />
+            <StatCard
+              className="grow-1"
+              text="Total Revenue"
+              value="$81.0"
+              percentage={10.6}
+              isTrendingUp
+            />
+          </div>
+          <div className="flex flex-wrap items-stretch gap-3 h-full">
+            <StatCard
+              className="grow-1"
+              text="Total Revenue"
+              value="$81.0"
+              percentage={10.6}
+              isTrendingUp
+            />
+            <StatCard
+              className="grow-1"
+              text="Total Revenue"
+              value="$81.0"
+              percentage={10.6}
+              isTrendingUp
+            />
+          </div>
+          <StatCard
+            text="Total Revenue"
+            value="$81.0"
+            percentage={10.6}
+            isTrendingUp
           />
         </div>
       </div>
