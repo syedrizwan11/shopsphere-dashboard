@@ -5,7 +5,9 @@ import {
   MultipleLineChartProps,
   SmallText,
   StatCard,
+  StyledSummaryCard,
 } from "@/components/ui"
+import { PopularProductsTable } from "./TopProducts"
 
 type ChartKeys = "averageSaleValue" | "totalOrders"
 
@@ -30,7 +32,7 @@ export const Dashboard = () => {
       <LargeHeading>Dashboard</LargeHeading>
       <SmallText>Dashboard</SmallText>
       <div className="flex gap-3 sm:flex-row flex-col mt-6">
-        <div className="basis-3/5 flex flex-col gap-3">
+        <div className="basis-1/2 flex flex-col gap-3">
           <AnalyticalSlider />
           <MultipleLineChart
             chartData={chartData}
@@ -40,8 +42,25 @@ export const Dashboard = () => {
             }}
           />
         </div>
-        <div className="flex flex-col gap-3 justify-stretch basis-2/5">
-          <div className="flex flex-wrap items-stretch gap-3 h-full">
+        <div className="flex flex-col gap-3 basis-1/2">
+          <div className="flex sm:flex-row flex-col items-stretch gap-3">
+            <StatCard
+              className="grow-1"
+              text="Total Revenue"
+              value="$81.0"
+              percentage={10.6}
+              isTrendingUp
+              blueVariant
+            />
+            <StatCard
+              className="grow-1"
+              text="Total Revenue"
+              value="$81.0"
+              percentage={10.6}
+              isTrendingUp
+            />
+          </div>
+          <div className="flex sm:flex-row flex-col items-stretch gap-3">
             <StatCard
               className="grow-1"
               text="Total Revenue"
@@ -57,29 +76,15 @@ export const Dashboard = () => {
               isTrendingUp
             />
           </div>
-          <div className="flex flex-wrap items-stretch gap-3 h-full">
-            <StatCard
-              className="grow-1"
-              text="Total Revenue"
-              value="$81.0"
-              percentage={10.6}
-              isTrendingUp
-            />
-            <StatCard
-              className="grow-1"
-              text="Total Revenue"
-              value="$81.0"
-              percentage={10.6}
-              isTrendingUp
-            />
-          </div>
-          <StatCard
-            text="Total Revenue"
-            value="$81.0"
-            percentage={10.6}
-            isTrendingUp
+          <StyledSummaryCard
+            title="Increase Your Sales"
+            description="Discover the Proven Methods to Skyrocket Your Sales! Unleash the Potential of Your Business and Achieve Remarkable Growth. Whether you're a seasoned entrepreneur or just starting out."
+            link=""
           />
         </div>
+      </div>
+      <div className="flex gap-3 sm:flex-row flex-col mt-6">
+        <PopularProductsTable />
       </div>
     </div>
   )
