@@ -17,17 +17,21 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/primitives/chart"
+import { ArrowUpRight } from "lucide-react"
+import Link from "next/link"
 
 export const description = "A multiple line chart"
 
 export interface MultipleLineChartProps<K extends string = string> {
   chartData: Array<{ month: string } & Record<K, number>>
   chartColors: Record<K, string>
+  link?: string
 }
 
 export const MultipleLineChart = <K extends string = string>({
   chartData,
   chartColors,
+  link,
 }: MultipleLineChartProps<K>) => {
   const keyLabels = useMemo(
     () =>
@@ -48,8 +52,18 @@ export const MultipleLineChart = <K extends string = string>({
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Your Sales this year</CardTitle>
-        <CardDescription>
+        <CardTitle className="mb-2">
+          <div className="flex justify-between">
+            <div>Your Sales this year</div>
+            <Link
+              href={link || "/dashboard"}
+              className=" flex gap-1 items-center"
+            >
+              <span className="text-xs">Show All</span> <ArrowUpRight />
+            </Link>
+          </div>
+        </CardTitle>
+        <CardDescription className="mb-7">
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
               <span className="w-4 h-4 rounded-sm bg-lime-400"></span>
