@@ -28,6 +28,13 @@ import {
 } from "./useGeneratedColums"
 import { DataTableToolbar } from "./DataTableToolBar"
 import { Pagination } from "./Pagination"
+import { SmallHeading } from "../SmallHeading"
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "@/components/primitives/card"
 
 export type DataTableProps<TData extends object> = {
   data: TData[]
@@ -85,11 +92,13 @@ export function DataTable<TData extends object>({
   })
 
   return (
-    <div className="w-full bg-bgPrimary p-4 rounded-3xl border shadow">
-      <div className="text-xl mb-4 px-2">{heading}</div>
-      <DataTableToolbar<TData> table={table} filterColumn={filterColumn} />
+    <Card className="w-full">
+      <CardHeader>
+        <SmallHeading>{heading}</SmallHeading>
+        <DataTableToolbar<TData> table={table} filterColumn={filterColumn} />
+      </CardHeader>
 
-      <div className="overflow-hidden rounded-lg border">
+      <CardContent className="overflow-hidden rounded-lg border mx-4 p-0">
         <TableContainer>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
@@ -136,17 +145,19 @@ export function DataTable<TData extends object>({
             )}
           </TableBody>
         </TableContainer>
-      </div>
-      {pageSize && (
-        <Pagination
-          selectedRows={table.getFilteredSelectedRowModel().rows.length}
-          totalRows={table.getFilteredRowModel().rows.length}
-          isNextDisabled={!table.getCanNextPage()}
-          isPrevDisabled={!table.getCanPreviousPage()}
-          toNext={() => table.nextPage()}
-          toPrev={() => table.previousPage()}
-        />
-      )}
-    </div>
+      </CardContent>
+      <CardFooter>
+        {pageSize && (
+          <Pagination
+            selectedRows={table.getFilteredSelectedRowModel().rows.length}
+            totalRows={table.getFilteredRowModel().rows.length}
+            isNextDisabled={!table.getCanNextPage()}
+            isPrevDisabled={!table.getCanPreviousPage()}
+            toNext={() => table.nextPage()}
+            toPrev={() => table.previousPage()}
+          />
+        )}
+      </CardFooter>
+    </Card>
   )
 }

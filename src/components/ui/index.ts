@@ -4,7 +4,9 @@ export { SmallHeading } from "./SmallHeading"
 export { SmallText } from "./SmallText"
 export { AnalyticalSlider } from "./AnalyticalSlider"
 export { StatCard } from "./StatCard"
-export { StyledSummaryCard } from "./StyledSummaryCard"
+export { StyledInfoCard } from "./StyledInfoCard"
+export { CustomMapLocationIndicator } from "./CustomMapLocationIndicator"
+export { SummaryCardHeader } from "./SummaryCardHeader"
 export {} from "."
 export {
   MultipleLineChart,

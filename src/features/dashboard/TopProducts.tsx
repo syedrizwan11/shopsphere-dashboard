@@ -1,9 +1,8 @@
 "use client"
+import { SummaryCardHeader } from "@/components/ui"
 import { DataTable } from "@/components/ui/datatable"
 import { ColumnConfig } from "@/components/ui/datatable/useGeneratedColums"
-import { ArrowUpRight } from "lucide-react"
 import Image from "next/image"
-import Link from "next/link"
 
 export type Product = {
   id: string
@@ -77,17 +76,10 @@ const productColumnsConfig = [
 export const PopularProductsTable = () => {
   return (
     <DataTable
-      heading={
-        <div className="flex justify-between">
-          <span>Popular Products</span>
-          <Link className="text-sm flex gap-1 items-center" href="">
-            Show All
-            <ArrowUpRight />
-          </Link>
-        </div>
-      }
+      heading={<SummaryCardHeader text="Popular Products" link="/" />}
       data={products}
       columnsConfig={productColumnsConfig}
+      pageSize={5}
     />
   )
 }
