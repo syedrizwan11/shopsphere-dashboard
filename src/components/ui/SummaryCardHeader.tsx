@@ -9,12 +9,12 @@ interface SummaryCardHeaderProps {
 }
 export const SummaryCardHeader = ({ text, link }: SummaryCardHeaderProps) => {
   return (
-    <div className="flex justify-between w-full">
-      <SmallHeading>{text}</SmallHeading>
-      <Link className="text-sm flex gap-1 items-center" href={link}>
+    <SmallHeading className="flex justify-between w-full flex-wrap">
+      <span>{text}</span>
+      <Link className="text-xs flex gap-1 items-center" href={link}>
         Show All
         <ArrowUpRight />
       </Link>
-    </div>
+    </SmallHeading>
   )
 }

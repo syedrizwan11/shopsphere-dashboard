@@ -2,6 +2,7 @@
 import { SummaryCardHeader } from "@/components/ui"
 import { DataTable } from "@/components/ui/datatable"
 import { ColumnConfig } from "@/components/ui/datatable/useGeneratedColums"
+import { cn } from "@/lib/utils"
 import Image from "next/image"
 
 export type Product = {
@@ -9,7 +10,7 @@ export type Product = {
   name: string
   price: number
   sales: number
-  status: "success" | "failed" | "pending"
+  status: "success" | "failed"
   image: string
 }
 
@@ -43,7 +44,7 @@ const products: Product[] = [
     name: "4K Monitor",
     price: 399,
     sales: 95,
-    status: "success",
+    status: "failed",
     image: "/images/shoes-1.png",
   },
 ]
@@ -70,7 +71,22 @@ const productColumnsConfig = [
   },
   { key: "price", header: "Price", sortable: true },
   { key: "sales", header: "Sales", sortable: true },
-  { key: "status", header: "Status" },
+  {
+    key: "status",
+    header: "Status",
+    render: (p: Product) => (
+      <div
+        className={cn(
+          "rounded-xl p-2 pt-1 text-center",
+          p.status === "success"
+            ? "bg-green-300 text-green-800"
+            : "bg-red-300 text-red-700"
+        )}
+      >
+        {p.status}
+      </div>
+    ),
+  },
 ] satisfies ColumnConfig<Product>[]
 
 export const PopularProductsTable = () => {
@@ -79,7 +95,6 @@ export const PopularProductsTable = () => {
       heading={<SummaryCardHeader text="Popular Products" link="/" />}
       data={products}
       columnsConfig={productColumnsConfig}
-      pageSize={5}
     />
   )
 }
