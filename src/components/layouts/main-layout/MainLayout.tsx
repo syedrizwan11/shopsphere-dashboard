@@ -1,10 +1,17 @@
 "use client"
-import { ReactNode, useState } from "react"
+import { ReactNode, useEffect, useState } from "react"
 import { SideBar } from "../sidebar"
 import { TopBar } from "../topbar/TopBar"
 
 export const MainLayout = ({ children }: { children: ReactNode }) => {
   const [expandedSideBar, setExpandedSideBar] = useState(false)
+
+  useEffect(() => {
+    const checkSize = () => {
+      setExpandedSideBar(window.innerWidth > 640)
+    }
+    checkSize()
+  }, [])
 
   return (
     <div className="bg-bgSecondary">

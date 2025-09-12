@@ -106,7 +106,7 @@ export const Dashboard = () => {
           />
         </div>
       </div>
-      <div className="flex gap-3 sm:flex-row flex-col mt-6">
+      <div className="flex gap-3  lg:flex-row flex-col mt-6">
         <div className="basis-2/5">
           <CustomMapLocationIndicator
             heading={

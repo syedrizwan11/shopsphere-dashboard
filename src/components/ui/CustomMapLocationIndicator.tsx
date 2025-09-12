@@ -52,9 +52,7 @@ export const CustomMapLocationIndicator = ({
         <div className="flex justify-between gap-2 flex-wrap">
           {mapData.map((el) => (
             <div key={el.name} className="flex gap-2 items-center">
-              <div
-                className={`bg-${el.color} green rounded-full p-2 w-fit h-fit`}
-              />
+              <div className={`bg-${el.color} rounded-full p-2 w-fit h-fit`} />
               <div>{el.name}</div>
             </div>
           ))}
@@ -79,7 +77,8 @@ export const CustomMapLocationIndicator = ({
                   new leaflet.DivIcon({
                     html: ReactDOMServer.renderToString(
                       <div
-                        className={`bg-${loc.color} green rounded-full p-2 w-fit h-fit`}
+                        className="rounded-full p-2 w-fit h-fit"
+                        style={{ background: loc.color || "green" }}
                       />
                     ),
                     className: "",
