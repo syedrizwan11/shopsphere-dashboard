@@ -1,0 +1,6 @@
+[
+  { "id": 1, "name": "Headphones", "orgId": 1 },
+  { "id": 2, "name": "Smartwatches", "orgId": 1 },
+  { "id": 3, "name": "Earbuds", "orgId": 1 },
+  { "id": 4, "name": "Gaming Accessories", "orgId": 1 }
+]

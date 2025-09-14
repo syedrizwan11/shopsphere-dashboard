@@ -9,6 +9,8 @@ const __dirname = path.dirname(__filePath)
 const models = {
   organization: prisma.organization,
   user: prisma.user,
+  productCategory: prisma.productCategory,
+  product: prisma.product,
 }
 
 const main = async () => {
