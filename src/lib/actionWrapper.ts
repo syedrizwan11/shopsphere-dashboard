@@ -2,12 +2,12 @@ import { PrismaClient } from "@prisma/client"
 import prisma from "./prisma"
 import { ApiResponse } from "@/types"
 
-export const actionWrapper = <T>(
-  action: (prisma: PrismaClient) => Promise<ApiResponse<T>>
-) => {
+export const actionWrapper = async <T>(
+  action: (prisma: PrismaClient) => Promise<T>
+): Promise<ApiResponse<T>> => {
   try {
-    const result = action(prisma)
-    return { success: true, data: result }
+    const data = await action(prisma)
+    return { success: true, data }
   } catch (error) {
     console.log(error)
     return {
