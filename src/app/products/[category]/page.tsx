@@ -1,3 +1,5 @@
+import { getAllProductsByCategory } from "@/actions"
+import { ProductsPage } from "@/features/products"
 import { notFound } from "next/navigation"
 
 type Props = {
@@ -6,18 +8,16 @@ type Props = {
 
 export default async function ProductCategoryPage({ params }: Props) {
   const { category } = await params
+  const products = await getAllProductsByCategory(1, 1)
 
-  // Example: allowed categories
-  const categories = ["sneakers", "jacket", "t-shirt", "bag"]
-
-  if (!categories.includes(category)) {
-    notFound()
+  if (!products.success) {
+    return notFound()
   }
 
   return (
     <div>
       <h1 className="text-2xl font-bold capitalize">{category} Products</h1>
-      {/* Fetch or filter products based on category here */}
+      <ProductsPage products={products.data} />
     </div>
   )
 }

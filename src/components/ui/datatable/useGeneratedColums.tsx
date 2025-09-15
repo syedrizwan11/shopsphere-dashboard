@@ -1,4 +1,5 @@
 import { ColumnDef } from "@tanstack/react-table"
+import { TbCaretUpDownFilled } from "react-icons/tb"
 
 export type ColumnConfig<T> = {
   key: keyof T
@@ -18,7 +19,19 @@ export function useGeneratedColumns<T>(
 ): ColumnDef<T>[] {
   const cols: ColumnDef<T>[] = config.map((col) => ({
     accessorKey: col.key as string,
-    header: col.header ?? String(col.key),
+    header: ({ column }) => {
+      return (
+        <div
+          className="flex justify-between items-center pr-4"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          {col.header ?? String(col.key)}
+          {col.sortable && (
+            <TbCaretUpDownFilled className="text-sm text-gray-400" />
+          )}
+        </div>
+      )
+    },
     enableSorting: col.sortable ?? false,
     cell: ({ row }) => {
       const original = row.original as T
@@ -55,6 +68,7 @@ export function useGeneratedColumns<T>(
   if (optionalFields?.withActions) {
     cols.push({
       id: "actions",
+      header: "Actions",
       cell: ({ row }) => (
         <div className="flex gap-2">
           <button onClick={() => console.log("Edit", row.original)}>✏️</button>

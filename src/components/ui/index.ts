@@ -7,6 +7,7 @@ export { StatCard } from "./StatCard"
 export { StyledInfoCard } from "./StyledInfoCard"
 export { CustomMapLocationIndicator } from "./CustomMapLocationIndicator"
 export { SummaryCardHeader } from "./SummaryCardHeader"
+export { BreadCrumb } from "./BreadCrumb"
 export {} from "."
 export {
   MultipleLineChart,
