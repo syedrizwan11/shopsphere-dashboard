@@ -10,7 +10,7 @@ export function DataTableToolbar<TData extends object>({
 }) {
   if (!filterColumn) return null
   return (
-    <div className="flex items-center py-4 gap-2">
+    <div className="flex items-center gap-2">
       <Input
         placeholder={`Filter ${String(filterColumn)}...`}
         value={

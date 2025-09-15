@@ -48,6 +48,7 @@ export function useGeneratedColumns<T>(
       header: ({ table }) => (
         <input
           type="checkbox"
+          className="ml-1"
           checked={table.getIsAllPageRowsSelected()}
           onChange={(e) => table.toggleAllPageRowsSelected(e.target.checked)}
         />
@@ -55,12 +56,13 @@ export function useGeneratedColumns<T>(
       cell: ({ row }) => (
         <input
           type="checkbox"
+          className="ml-1"
           checked={row.getIsSelected()}
           onChange={(e) => row.toggleSelected(e.target.checked)}
         />
       ),
       enableSorting: false,
-      enableHiding: false,
+      enableHiding: true,
     })
   }
 

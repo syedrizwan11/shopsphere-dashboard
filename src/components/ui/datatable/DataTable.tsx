@@ -64,7 +64,7 @@ export function DataTable<TData extends object>({
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({})
   const [pagination, setPagination] = useState({
     pageIndex: 0,
-    pageSize: 5,
+    pageSize: pageSize ?? 5,
   })
   const [rowSelection, setRowSelection] = useState({})
 
