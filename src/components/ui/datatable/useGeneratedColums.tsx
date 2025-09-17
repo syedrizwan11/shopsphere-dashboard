@@ -1,21 +1,21 @@
 import { ColumnDef } from "@tanstack/react-table"
 import { TbCaretUpDownFilled } from "react-icons/tb"
+import { TableOptions } from "./DataTable"
 
 export type ColumnConfig<T> = {
   key: keyof T
   header?: string
   sortable?: boolean
+  canHide?: boolean
   render?: (row: T) => React.ReactNode
-}
-
-export type OptionalFieldsConfig = {
-  withCheckbox?: boolean
-  withActions?: boolean
 }
 
 export function useGeneratedColumns<T>(
   config: ColumnConfig<T>[],
-  optionalFields?: OptionalFieldsConfig
+  optionalFields?: Pick<
+    TableOptions<T>,
+    "includeActionsColumn" | "includeSelectionColumn"
+  >
 ): ColumnDef<T>[] {
   const cols: ColumnDef<T>[] = config.map((col) => ({
     accessorKey: col.key as string,
@@ -33,6 +33,7 @@ export function useGeneratedColumns<T>(
       )
     },
     enableSorting: col.sortable ?? false,
+    enableHiding: col.canHide ?? false,
     cell: ({ row }) => {
       const original = row.original as T
       return col.render
@@ -42,7 +43,7 @@ export function useGeneratedColumns<T>(
   }))
 
   // Optional checkbox column
-  if (optionalFields?.withCheckbox) {
+  if (optionalFields?.includeSelectionColumn) {
     cols.unshift({
       id: "select",
       header: ({ table }) => (
@@ -62,12 +63,12 @@ export function useGeneratedColumns<T>(
         />
       ),
       enableSorting: false,
-      enableHiding: true,
+      enableHiding: false,
     })
   }
 
   // Optional actions column
-  if (optionalFields?.withActions) {
+  if (optionalFields?.includeActionsColumn) {
     cols.push({
       id: "actions",
       header: "Actions",
@@ -80,7 +81,7 @@ export function useGeneratedColumns<T>(
         </div>
       ),
       enableSorting: false,
-      enableHiding: false,
+      enableHiding: true,
     })
   }
 

@@ -21,11 +21,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import {
-  ColumnConfig,
-  OptionalFieldsConfig,
-  useGeneratedColumns,
-} from "./useGeneratedColums"
+import { ColumnConfig, useGeneratedColumns } from "./useGeneratedColums"
 import { DataTableToolbar } from "./DataTableToolBar"
 import { Pagination } from "./Pagination"
 import { SmallHeading } from "../SmallHeading"
@@ -40,15 +36,19 @@ export type DataTableProps<TData extends object> = {
   data: TData[]
   heading?: ReactNode | string
   columnsConfig: ColumnConfig<TData>[]
-  options?: OptionalFieldsConfig
-  filterColumn?: keyof TData
-  // withSelection?: boolean
-  // withActions?: boolean
-  // sortableColumns?: (keyof TData)[]
-  // hiddenColumns?: (keyof TData)[]
+  options?: TableOptions<TData>
+}
+
+export type TableOptions<TData> = {
+  includeSelectionColumn?: boolean
+  includeActionsColumn?: boolean
+  filterByColumn?: keyof TData
+  showColumnToggle?: boolean
+  showExportButton?: boolean
   pageSize?: number
-  onEdit?: (row: TData) => void
-  onDelete?: (row: TData) => void
+  onAddRecord?: () => void
+  onEditRecord?: (row: TData) => void
+  onDeleteRecord?: (row: TData) => void
 }
 
 export function DataTable<TData extends object>({
@@ -56,15 +56,13 @@ export function DataTable<TData extends object>({
   data,
   columnsConfig,
   options,
-  filterColumn,
-  pageSize,
 }: DataTableProps<TData>) {
   const [sorting, setSorting] = useState<SortingState>([])
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({})
   const [pagination, setPagination] = useState({
     pageIndex: 0,
-    pageSize: pageSize ?? 5,
+    pageSize: options?.pageSize ?? 5,
   })
   const [rowSelection, setRowSelection] = useState({})
 
@@ -95,7 +93,13 @@ export function DataTable<TData extends object>({
     <Card className="w-full">
       <CardHeader>
         <SmallHeading>{heading}</SmallHeading>
-        <DataTableToolbar<TData> table={table} filterColumn={filterColumn} />
+        <DataTableToolbar<TData>
+          table={table}
+          filterByColumn={options?.filterByColumn}
+          showColumnToggle={options?.showColumnToggle}
+          showExportButton={options?.showExportButton}
+          onAddRecord={options?.onAddRecord}
+        />
       </CardHeader>
 
       <CardContent className="overflow-hidden rounded-lg border mx-4 p-0">
@@ -147,7 +151,7 @@ export function DataTable<TData extends object>({
         </TableContainer>
       </CardContent>
       <CardFooter>
-        {pageSize && (
+        {options?.pageSize && (
           <Pagination
             selectedRows={table.getFilteredSelectedRowModel().rows.length}
             totalRows={table.getFilteredRowModel().rows.length}
