@@ -15,9 +15,17 @@ export const ProductsPage = ({ products }: ProductsPageCategory) => {
       <DataTable
         data={products}
         columnsConfig={productColumnsConfig}
-        options={{ withActions: true, withCheckbox: true }}
-        filterColumn={"name"}
-        pageSize={8}
+        options={{
+          includeActionsColumn: true,
+          includeSelectionColumn: true,
+          showColumnToggle: true,
+          showExportButton: true,
+          filterByColumn: "name",
+          pageSize: 8,
+          onAddRecord: () => {},
+          onDeleteRecord: () => {},
+          onEditRecord: () => {},
+        }}
       />
     </div>
   )

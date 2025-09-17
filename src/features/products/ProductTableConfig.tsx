@@ -25,12 +25,14 @@ export const productColumnsConfig = [
     ),
     sortable: true,
   },
-  { key: "quantity", header: "Price", sortable: true },
+  { key: "quantity", header: "Quantity", sortable: true, canHide: true },
+  { key: "price", header: "Price", sortable: true, canHide: true },
   {
     key: "createdAt",
     header: "Date",
     render: (p: Product) => <div>{p.createdAt.toLocaleDateString()}</div>,
     sortable: true,
+    canHide: true,
   },
   {
     key: "status",
@@ -47,5 +49,6 @@ export const productColumnsConfig = [
         {ProductAvailabilityStatus[p.status]}
       </div>
     ),
+    canHide: true,
   },
 ] satisfies ColumnConfig<Product>[]
