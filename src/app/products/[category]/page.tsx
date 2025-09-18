@@ -7,8 +7,8 @@ type Props = {
 }
 
 export default async function ProductCategoryPage({ params }: Props) {
-  const { category } = await params
-  const products = await getAllProductsByCategory(1, 1)
+  const category = await decodeURIComponent(params.category)
+  const products = await getAllProductsByCategory(category, 1)
 
   if (!products.success) {
     return notFound()
@@ -16,7 +16,7 @@ export default async function ProductCategoryPage({ params }: Props) {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold capitalize">{category} Products</h1>
+      <h1 className="text-2xl font-bold capitalize">Products</h1>
       <ProductsPage products={products.data} />
     </div>
   )

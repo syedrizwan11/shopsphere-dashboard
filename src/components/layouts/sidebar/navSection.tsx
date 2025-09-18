@@ -11,7 +11,7 @@ export interface NavSectionProps {
 }
 
 export const NavSection = ({ icon, text, href, expanded }: NavSectionProps) => {
-  const path = usePathname()
+  const path = decodeURIComponent(usePathname()).toLowerCase()
 
   return (
     <Link

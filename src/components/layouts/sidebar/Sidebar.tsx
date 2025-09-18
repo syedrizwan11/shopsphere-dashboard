@@ -1,14 +1,15 @@
 import { ToggleNightMode } from "@/components/ui"
 import { SideBarNavSectionContainer, UserCompanyInfo } from "."
-import { navSections } from "@/config/navigation"
+import { type INavSection } from "@/config/navigation"
 import { cn } from "@/lib/utils"
 import { UserInfoBadge } from "@/components/ui/UserInfoBadge"
 
 interface SideBarProps {
   expandedSideBar: boolean
+  navSections: INavSection[]
 }
 
-export const SideBar = ({ expandedSideBar }: SideBarProps) => {
+export const SideBar = ({ expandedSideBar, navSections }: SideBarProps) => {
   return (
     <aside
       className={cn(

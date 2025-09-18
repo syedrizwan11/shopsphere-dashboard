@@ -3,12 +3,12 @@ import { actionWrapper } from "@/lib/actionWrapper"
 import { Product } from "@prisma/client"
 
 export const getAllProductsByCategory = async (
-  productCategoryId: number,
+  productCategoryName: string,
   orgId: number
 ) => {
   return actionWrapper<Product[]>(async (prisma) => {
     const products = await prisma.product.findMany({
-      where: { productCategoryId, orgId },
+      where: { productCategory: { name: productCategoryName }, orgId },
     })
     if (products) return products
     throw new Error("products not found")

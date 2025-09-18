@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 
 export const BreadCrumb = () => {
-  const paths = usePathname().split("/").filter(Boolean)
+  const paths = decodeURIComponent(usePathname()).split("/").filter(Boolean)
 
   return (
     <div className="flex mb-4 cursor-default text-textTertiary">

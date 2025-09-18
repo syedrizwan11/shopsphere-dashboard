@@ -1,6 +1,7 @@
 import { INavSection } from "@/config/navigation"
 import { CollapsibleNavSection } from "./CollapsibleNavSection"
 import { NavSection } from "./navSection"
+import { iconMap } from "@/constants/icons"
 
 interface SidebarSectionProps {
   section: INavSection
@@ -18,11 +19,12 @@ export const SideBarNavSectionContainer = ({
       </div>
     )}
 
-    {section.items.map((item) =>
-      item.children && expanded ? (
+    {section.items.map((item) => {
+      const Icon = item.icon ? iconMap[item.icon] : null
+      return item.children && expanded ? (
         <CollapsibleNavSection
           key={item.label}
-          icon={item.icon && <item.icon />}
+          icon={Icon && <Icon />}
           text={item.label}
           href={item.href || ""}
           subSections={item.children}
@@ -30,12 +32,12 @@ export const SideBarNavSectionContainer = ({
       ) : (
         <NavSection
           key={item.label}
-          icon={item.icon && <item.icon />}
+          icon={Icon && <Icon />}
           text={item.label}
           href={item.href || ""}
           expanded={expanded}
         />
       )
-    )}
+    })}
   </div>
 )

@@ -20,7 +20,7 @@ export const CollapsibleNavSection = ({
   text,
   subSections,
 }: CollapsibleNavSectionProps) => {
-  const path = usePathname().toLowerCase()
+  const path = decodeURIComponent(usePathname()).toLowerCase()
   return (
     <Accordion type="single" collapsible>
       <AccordionItem value="item-1">
