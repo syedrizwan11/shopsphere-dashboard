@@ -1,5 +1,10 @@
+import { BounceLoader } from "react-spinners"
 const Loading = () => {
-  return <p className="p-4 text-gray-500">Loading...</p>
+  return (
+    <div className="flex justify-center items-center h-3/4">
+      <BounceLoader color="#1a71f6" />
+    </div>
+  )
 }
 
 export default Loading

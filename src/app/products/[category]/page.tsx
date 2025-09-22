@@ -7,8 +7,11 @@ type Props = {
 }
 
 export default async function ProductCategoryPage({ params }: Props) {
-  const category = await decodeURIComponent(params.category)
-  const products = await getAllProductsByCategory(category, 1)
+  const { category } = await params
+  const products = await getAllProductsByCategory(
+    decodeURIComponent(category),
+    1
+  )
 
   if (!products.success) {
     return notFound()

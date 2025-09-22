@@ -8,6 +8,8 @@ export { StyledInfoCard } from "./StyledInfoCard"
 export { CustomMapLocationIndicator } from "./CustomMapLocationIndicator"
 export { SummaryCardHeader } from "./SummaryCardHeader"
 export { BreadCrumb } from "./BreadCrumb"
+export { Loader } from "./Loader"
+export { ActionWithConfirmationPrompt } from "./ActionWithConfirmationPrompt"
 export {} from "."
 export {
   MultipleLineChart,

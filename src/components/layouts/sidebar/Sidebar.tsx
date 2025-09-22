@@ -15,7 +15,7 @@ export const SideBar = ({ expandedSideBar, navSections }: SideBarProps) => {
       className={cn(
         "bg-bgPrimary text-sm sm:min-h-[calc(100vh-var(--topBarHeight))] transition-all duration-200 ease-in-out shrink-0",
         expandedSideBar
-          ? "sm:w-fixedSideBar w-full sm:static absolute z-1000 p-4"
+          ? "sm:w-fixedSideBar w-full sm:static absolute z-999 p-4"
           : "w-16 p-2 h-topBar sm:block hidden"
       )}
     >

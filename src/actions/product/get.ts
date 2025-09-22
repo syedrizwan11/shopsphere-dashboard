@@ -7,6 +7,9 @@ export const getAllProductsByCategory = async (
   orgId: number
 ) => {
   return actionWrapper<Product[]>(async (prisma) => {
+    if (!productCategoryName || !orgId) {
+      throw new Error("Invalid filters")
+    }
     const products = await prisma.product.findMany({
       where: { productCategory: { name: productCategoryName }, orgId },
     })

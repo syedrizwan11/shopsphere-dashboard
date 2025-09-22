@@ -1,6 +1,9 @@
 import { ColumnDef } from "@tanstack/react-table"
 import { TbCaretUpDownFilled } from "react-icons/tb"
 import { TableOptions } from "./DataTable"
+import { SquarePen, Trash2 } from "lucide-react"
+import { Button } from "@/components/primitives/button"
+import { ActionWithConfirmationPrompt } from "../ActionWithConfirmationPrompt"
 
 export type ColumnConfig<T> = {
   key: keyof T
@@ -10,11 +13,14 @@ export type ColumnConfig<T> = {
   render?: (row: T) => React.ReactNode
 }
 
-export function useGeneratedColumns<T>(
+export function useGeneratedColumns<T extends { id?: number }>(
   config: ColumnConfig<T>[],
   optionalFields?: Pick<
     TableOptions<T>,
-    "includeActionsColumn" | "includeSelectionColumn"
+    | "includeActionsColumn"
+    | "includeSelectionColumn"
+    | "onDeleteRecord"
+    | "onEditRecord"
   >
 ): ColumnDef<T>[] {
   const cols: ColumnDef<T>[] = config.map((col) => ({
@@ -42,7 +48,6 @@ export function useGeneratedColumns<T>(
     },
   }))
 
-  // Optional checkbox column
   if (optionalFields?.includeSelectionColumn) {
     cols.unshift({
       id: "select",
@@ -67,19 +72,34 @@ export function useGeneratedColumns<T>(
     })
   }
 
-  // Optional actions column
   if (optionalFields?.includeActionsColumn) {
     cols.push({
       id: "actions",
       header: "Actions",
-      cell: ({ row }) => (
-        <div className="flex gap-2">
-          <button onClick={() => console.log("Edit", row.original)}>✏️</button>
-          <button onClick={() => console.log("Delete", row.original)}>
-            🗑️
-          </button>
-        </div>
-      ),
+      cell: ({ row }) => {
+        return (
+          <div className="flex">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => console.log("Edit", row.original)}
+            >
+              <SquarePen size={20} className="text-teal-500" />
+            </Button>
+
+            <ActionWithConfirmationPrompt
+              trigger={
+                <div className="hover:bg-gray-200 hover:text-accent-foreground dark:hover:bg-gray-200/20 cursor-pointer size-8 flex justify-center items-center rounded-md">
+                  <Trash2 size={20} className="text-red-400" />
+                </div>
+              }
+              onConfirmation={() => {
+                optionalFields?.onDeleteRecord?.(row.original)
+              }}
+            />
+          </div>
+        )
+      },
       enableSorting: false,
       enableHiding: true,
     })
