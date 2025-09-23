@@ -20,7 +20,7 @@ export default async function ProductCategoryPage({ params }: Props) {
   return (
     <div>
       <h1 className="text-2xl font-bold capitalize">Products</h1>
-      <ProductsPage products={products.data} />
+      <ProductsPage products={products.data} productCategory={category} />
     </div>
   )
 }

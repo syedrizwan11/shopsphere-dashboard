@@ -20,7 +20,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table"
+} from "@/components/primitives/table"
 import { ColumnConfig, useGeneratedColumns } from "./useGeneratedColums"
 import { DataTableToolbar } from "./DataTableToolBar"
 import { Pagination } from "./Pagination"

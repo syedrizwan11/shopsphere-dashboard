@@ -101,7 +101,7 @@ export function DataTableToolbar<TData>({
           <Button
             variant="tertiary"
             className="flex items-center gap-2 bg-blue"
-            onClick={() => exportToCSV(table)}
+            onClick={() => onAddRecord()}
           >
             <div>
               Add <span className="sm:inline hidden">Record</span>

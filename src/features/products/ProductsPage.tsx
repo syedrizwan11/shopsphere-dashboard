@@ -6,19 +6,24 @@ import { productColumnsConfig } from "./ProductTableConfig"
 import { deleteProduct } from "@/actions/product/delete"
 import { useState } from "react"
 import { errorToast } from "@/lib/toast"
+import { useRouter } from "next/navigation"
 
-interface ProductsPageCategory {
+interface ProductsPageProps {
   products: Product[]
+  productCategory: string
 }
-export const ProductsPage = ({ products }: ProductsPageCategory) => {
+export const ProductsPage = ({
+  products,
+  productCategory,
+}: ProductsPageProps) => {
   const [productsData, setProductsData] = useState(products)
+  const router = useRouter()
 
   const handleDeleteRecord = async (row: Product) => {
     const prevData = productsData
 
     setProductsData((prev) => prev.filter((p) => p.id !== row.id))
     const res = await deleteProduct(row.id!)
-
     if (!res.success) {
       errorToast("Error In Deleting This Product", res.error)
       setProductsData([...prevData])
@@ -38,7 +43,9 @@ export const ProductsPage = ({ products }: ProductsPageCategory) => {
           showExportButton: true,
           filterByColumn: "name",
           pageSize: 8,
-          onAddRecord: () => {},
+          onAddRecord: () => {
+            router.push(`/products/${productCategory}/add-product`)
+          },
           onDeleteRecord: handleDeleteRecord,
           onEditRecord: () => {},
         }}
