@@ -1,6 +1,6 @@
 import React from "react"
 import { LogoHeader } from "."
-import { UserInfoBadge } from "@/components/ui/UserInfoBadge"
+import { UserInfoBadge } from "@/components/ui/user-info-badge/UserInfoBadge"
 import { Bell } from "lucide-react"
 
 interface TopBarProps {

@@ -1,7 +1,7 @@
 import React from "react"
-import { Card, CardContent, CardHeader } from "../primitives/card"
-import { SmallHeading, SmallText } from "."
-import { Slider } from "../primitives/slider"
+import { Card, CardContent, CardHeader } from "../../primitives/card"
+import { SmallHeading, SmallText } from ".."
+import { Slider } from "../../primitives/slider"
 
 export const AnalyticalSlider = () => {
   const heading = "Sales Target"

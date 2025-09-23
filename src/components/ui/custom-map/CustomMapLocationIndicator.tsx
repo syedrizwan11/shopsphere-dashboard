@@ -4,7 +4,7 @@ import "leaflet/dist/leaflet.css"
 import type * as Leaflet from "leaflet"
 import dynamic from "next/dynamic"
 import { useEffect, useState } from "react"
-import { Card, CardContent, CardHeader } from "../primitives/card"
+import { Card, CardContent, CardHeader } from "../../primitives/card"
 import ReactDOMServer from "react-dom/server"
 
 const MapContainer = dynamic(

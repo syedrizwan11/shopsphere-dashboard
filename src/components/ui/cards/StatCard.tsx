@@ -1,5 +1,5 @@
-import { Card, CardContent } from "../primitives/card"
-import { SmallHeading } from "."
+import { Card, CardContent } from "../../primitives/card"
+import { SmallHeading } from ".."
 import { ArrowUpRight, TrendingDown, TrendingUp } from "lucide-react"
 import { cn } from "@/lib/utils"
 import Link from "next/link"

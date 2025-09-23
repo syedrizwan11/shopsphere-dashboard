@@ -24,7 +24,7 @@ import {
 import { ColumnConfig, useGeneratedColumns } from "./useGeneratedColums"
 import { DataTableToolbar } from "./DataTableToolBar"
 import { Pagination } from "./Pagination"
-import { SmallHeading } from "../SmallHeading"
+import { SmallHeading } from "../typography/SmallHeading"
 import {
   Card,
   CardContent,

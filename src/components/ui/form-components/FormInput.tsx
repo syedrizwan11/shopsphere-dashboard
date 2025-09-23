@@ -8,8 +8,8 @@ import {
   FormMessage,
 } from "@/components/primitives/form"
 import { Input } from "@/components/primitives/input"
+import { Textarea } from "@/components/primitives/textarea"
 import { Control, FieldValues, Path } from "react-hook-form"
-import { Textarea } from "../primitives/textarea"
 
 interface FormInputProps<T extends FieldValues> {
   name: Path<T>

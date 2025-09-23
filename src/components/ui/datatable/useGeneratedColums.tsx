@@ -3,7 +3,7 @@ import { TbCaretUpDownFilled } from "react-icons/tb"
 import { TableOptions } from "./DataTable"
 import { SquarePen, Trash2 } from "lucide-react"
 import { Button } from "@/components/primitives/button"
-import { ActionWithConfirmationPrompt } from "../ActionWithConfirmationPrompt"
+import { ActionWithConfirmationPrompt } from "../confirmation-prompt/ConfirmationPrompt"
 
 export type ColumnConfig<T> = {
   key: keyof T

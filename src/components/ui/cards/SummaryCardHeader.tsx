@@ -1,7 +1,7 @@
 import { ArrowUpRight } from "lucide-react"
 import Link from "next/link"
 import React from "react"
-import { SmallHeading } from "./SmallHeading"
+import { SmallHeading } from ".."
 
 interface SummaryCardHeaderProps {
   text: string

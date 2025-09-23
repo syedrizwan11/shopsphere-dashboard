@@ -14,7 +14,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "../primitives/select"
+} from "../../primitives/select"
 
 interface FormSelectProps<T extends FieldValues> {
   name: Path<T>

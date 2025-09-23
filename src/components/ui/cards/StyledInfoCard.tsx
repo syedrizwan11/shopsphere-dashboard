@@ -1,5 +1,5 @@
-import { Card, CardContent } from "../primitives/card"
-import { LargeHeading } from "."
+import { Card, CardContent } from "@/components/primitives/card"
+import { LargeHeading } from ".."
 import { cn } from "@/lib/utils"
 interface StyledInfoCardProps {
   title: string

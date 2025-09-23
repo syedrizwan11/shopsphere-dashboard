@@ -2,7 +2,7 @@ import { ToggleNightMode } from "@/components/ui"
 import { SideBarNavSectionContainer, UserCompanyInfo } from "."
 import { type INavSection } from "@/config/navigation"
 import { cn } from "@/lib/utils"
-import { UserInfoBadge } from "@/components/ui/UserInfoBadge"
+import { UserInfoBadge } from "@/components/ui/user-info-badge/UserInfoBadge"
 
 interface SideBarProps {
   expandedSideBar: boolean
