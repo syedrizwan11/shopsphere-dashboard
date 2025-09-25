@@ -4,7 +4,7 @@ import { getAllProductCategories } from "@/actions"
 import { type NavItem, navSections } from "@/config/navigation"
 
 export const MainLayout = async ({ children }: { children: ReactNode }) => {
-  const productCategories = await getAllProductCategories(1)
+  const productCategories = await getAllProductCategories()
   const updatedNavSections = productCategories.success
     ? navSections.map((el) => ({
         ...el,

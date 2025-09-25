@@ -2,11 +2,9 @@
 import { actionWrapper } from "@/lib/actionWrapper"
 import { Product } from "@prisma/client"
 
-export const getAllProductsByCategory = async (
-  productCategoryName: string,
-  orgId: number
-) => {
+export const getAllProductsByCategory = async (productCategoryName: string) => {
   return actionWrapper<Product[]>(async (prisma) => {
+    const orgId = 1
     if (!productCategoryName || !orgId) {
       throw new Error("Invalid filters")
     }
