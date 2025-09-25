@@ -82,7 +82,7 @@ export function useGeneratedColumns<T extends { id?: number }>(
             <Button
               variant="ghost"
               size="icon"
-              onClick={() => console.log("Edit", row.original)}
+              onClick={() => optionalFields?.onEditRecord?.(row.original)}
             >
               <SquarePen size={20} className="text-teal-500" />
             </Button>

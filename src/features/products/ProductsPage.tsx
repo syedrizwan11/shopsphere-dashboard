@@ -47,7 +47,9 @@ export const ProductsPage = ({
             router.push(`/products/${productCategory}/add-product`)
           },
           onDeleteRecord: handleDeleteRecord,
-          onEditRecord: () => {},
+          onEditRecord: (row) => {
+            router.push(`/products/${productCategory}/edit-product/${row.id}`)
+          },
         }}
       />
     </div>

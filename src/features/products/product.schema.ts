@@ -9,5 +9,7 @@ export const productSchema = z.object({
   status: AvailabilityStatusEnum,
   description: z.string().min(1, "Description is required"),
   category: z.string(),
-  images: z.array(z.instanceof(File), "At least One Image Required"),
+  images: z
+    .array(z.union([z.instanceof(File), z.string()]))
+    .min(1, "At least one image is required"),
 })

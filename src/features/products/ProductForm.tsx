@@ -17,25 +17,62 @@ import {
 import { ProductAvailabilityStatus } from "@/types/product"
 import { useParams } from "next/navigation"
 import { createProduct } from "@/actions/product/create"
+import { Product } from "@prisma/client"
+import { updateProduct } from "@/actions/product/update"
+import { toast } from "sonner"
+import { useRouter } from "next/navigation"
+import { ApiResponse } from "@/types"
 
-export const ProductForm = () => {
+interface formProps {
+  product?: Product
+}
+export const ProductForm = ({ product }: formProps) => {
   const { category } = useParams<{ category: string }>()
+  const router = useRouter()
 
   const form = useForm<z.infer<typeof productSchema>>({
     resolver: zodResolver(productSchema),
     defaultValues: {
-      name: "",
-      price: 0,
-      quantity: 1,
-      status: "AVAILABLE",
-      description: "",
+      name: product?.name ?? "",
+      price: product?.price ?? 0,
+      quantity: product?.quantity ?? 1,
+      status: product?.status ?? "AVAILABLE",
+      description: product?.description ?? "",
+      images: product?.images ?? [],
       category,
     },
   })
 
   const onSubmit = async (values: z.infer<typeof productSchema>) => {
-    await createProduct(values)
+    const isEditing = Boolean(product)
+    let result: ApiResponse<Product>
+    if (isEditing) {
+      result = await updateProduct({ ...values, id: product!.id })
+    } else {
+      result = await createProduct({
+        ...values,
+        images: values.images as File[],
+      })
+    }
+
+    if (!result.success) {
+      toast.error("Error In Saving This Product")
+      return
+    }
+
+    toast.success(
+      isEditing
+        ? "Product updated successfully"
+        : "Product created successfully"
+    )
+
+    if (isEditing) {
+      router.push(`/products/${category}/`)
+    } else {
+      form.reset()
+    }
   }
+
   return (
     <Form {...form}>
       <form
