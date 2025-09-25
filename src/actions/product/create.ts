@@ -1,7 +1,7 @@
 "use server"
 import { actionWrapper } from "@/lib/actionWrapper"
 import { AvailabilityStatus, Product } from "@prisma/client"
-import { processImages } from ".."
+import { storeImages } from ".."
 
 export const createProduct = async (data: {
   name: string
@@ -21,7 +21,7 @@ export const createProduct = async (data: {
     })
     if (!productCategory) throw new Error("Category not found")
 
-    const productImagesUrls = await processImages(images)
+    const productImagesUrls = await storeImages(images)
     const productCreated = await prisma.product.create({
       data: {
         ...productData,

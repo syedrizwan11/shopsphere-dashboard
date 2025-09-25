@@ -3,9 +3,8 @@ import { IMAGE_UPLOAD_FOLDER } from "@/constants"
 import fs from "fs/promises"
 import path from "path"
 
-export const processImages = async (files: File[]) => {
+export const storeImages = async (files: File[]) => {
   const uploadDir = path.join(process.cwd(), `public/${IMAGE_UPLOAD_FOLDER}`)
-  console.log("root path : ", process.cwd())
 
   await fs.mkdir(uploadDir, { recursive: true })
 
