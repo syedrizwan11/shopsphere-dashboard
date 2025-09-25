@@ -29,8 +29,8 @@ export const FormImageUpload = <T extends FieldValues>({
   const handleFiles = useCallback(
     (
       event: React.ChangeEvent<HTMLInputElement>,
-      files: File[],
-      onChangeField: (val: File[]) => void
+      files: (File | string)[],
+      onChangeField: (val: (File | string)[]) => void
     ) => {
       const newFiles = event.target.files ? Array.from(event.target.files) : []
       const updated = [...files, ...newFiles].slice(0, maxImages)
@@ -41,7 +41,11 @@ export const FormImageUpload = <T extends FieldValues>({
   )
 
   const handleRemove = useCallback(
-    (index: number, files: File[], onChangeField: (val: File[]) => void) => {
+    (
+      index: number,
+      files: (File | string)[],
+      onChangeField: (val: (File | string)[]) => void
+    ) => {
       const updated = files.filter((_, i) => i !== index)
       onChangeField(updated)
     },
@@ -53,13 +57,14 @@ export const FormImageUpload = <T extends FieldValues>({
       control={formControl}
       name={name}
       render={({ field }) => {
-        const files: File[] = field.value || []
+        const files: (File | string)[] = field.value || []
         return (
           <FormItem>
             {label && <FormLabel>{label}</FormLabel>}
             <div className="flex flex-wrap gap-2">
               {Array.from({ length: maxImages }).map((_, idx) => {
                 const file = files[idx]
+                const isUrl = typeof file === "string"
                 return (
                   <div
                     key={idx}
@@ -69,7 +74,7 @@ export const FormImageUpload = <T extends FieldValues>({
                     {file ? (
                       <>
                         <Image
-                          src={URL.createObjectURL(file)}
+                          src={isUrl ? file : URL.createObjectURL(file)}
                           alt={`Photo ${idx + 1}`}
                           className="rounded object-cover"
                           fill
