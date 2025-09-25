@@ -48,6 +48,11 @@ export const FormInput = <T extends FieldValues>({
                 type={type}
                 {...field}
                 disabled={disabled}
+                onChange={(e) =>
+                  field.onChange(
+                    type === "number" ? +e.target.value : e.target.value
+                  )
+                }
               />
             )}
           </FormControl>

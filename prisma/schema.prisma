@@ -50,6 +50,7 @@ model ProductCategory {
   Organization Organization @relation(fields: [orgId], references: [OrganizationId])
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  @@unique([orgId, name])
 }
 
 model Product {

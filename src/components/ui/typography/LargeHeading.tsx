@@ -7,7 +7,7 @@ interface LargeHeadingProps {
 }
 export const LargeHeading = ({ children, className }: LargeHeadingProps) => {
   return (
-    <div className={cn("text-xl font-semibold text-textPrimary", className)}>
+    <div className={cn("text-2xl font-semibold text-textPrimary", className)}>
       {children}
     </div>
   )

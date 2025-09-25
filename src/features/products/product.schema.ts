@@ -8,6 +8,6 @@ export const productSchema = z.object({
   quantity: z.number().int().nonnegative("Quantity must be 0 or greater"),
   status: AvailabilityStatusEnum,
   description: z.string().min(1, "Description is required"),
-  category: z.string().optional(),
-  images: z.array(z.url({ message: "Invalid image URL" })).optional(),
+  category: z.string(),
+  images: z.array(z.instanceof(File), "At least One Image Required"),
 })

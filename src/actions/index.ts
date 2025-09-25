@@ -1,3 +1,6 @@
 export { getAllUsers } from "./user/get"
 export { getAllProductCategories } from "./productCategory/get"
 export { getAllProductsByCategory } from "./product/get"
+export { deleteProduct } from "./product/delete"
+export { createProduct } from "./product/create"
+export { processImages } from "./media/processImages"

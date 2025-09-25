@@ -12,7 +12,8 @@ export { Loader } from "./loader/Loader"
 export { ActionWithConfirmationPrompt } from "./confirmation-prompt/ConfirmationPrompt"
 export { FormInput } from "./form-components/FormInput"
 export { FormSelect } from "./form-components/FormSelect"
-export {} from "./form-components/"
+export { FormImageUpload } from "./form-components/FormImageUpload"
+export {} from "."
 export {
   MultipleLineChart,
   type MultipleLineChartProps,
