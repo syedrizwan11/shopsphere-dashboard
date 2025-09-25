@@ -1,6 +1,5 @@
 "use client"
-import { BreadCrumb } from "@/components/ui"
-import { DataTable } from "@/components/ui/datatable"
+import { BreadCrumb, DataTable } from "@/components/ui"
 import { Product } from "@prisma/client"
 import { productColumnsConfig } from "./ProductTableConfig"
 import { deleteProduct } from "@/actions/product/delete"

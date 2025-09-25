@@ -13,6 +13,7 @@ export { ActionWithConfirmationPrompt } from "./confirmation-prompt/Confirmation
 export { FormInput } from "./form-components/FormInput"
 export { FormSelect } from "./form-components/FormSelect"
 export { FormImageUpload } from "./form-components/FormImageUpload"
+export { DataTable, type ColumnConfig } from "./data-table/DataTable"
 export {} from "."
 export {
   MultipleLineChart,

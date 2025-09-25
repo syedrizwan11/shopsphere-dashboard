@@ -21,7 +21,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/primitives/table"
-import { ColumnConfig, useGeneratedColumns } from "./useGeneratedColums"
+import { useGeneratedColumns } from "./useGeneratedColumns"
 import { DataTableToolbar } from "./DataTableToolBar"
 import { Pagination } from "./Pagination"
 import { SmallHeading } from "../typography/SmallHeading"
@@ -49,6 +49,14 @@ export type TableOptions<TData> = {
   onAddRecord?: () => void
   onEditRecord?: (row: TData) => void
   onDeleteRecord?: (row: TData) => void
+}
+
+export type ColumnConfig<TData> = {
+  key: keyof TData
+  header?: string
+  sortable?: boolean
+  canHide?: boolean
+  render?: (row: TData) => React.ReactNode
 }
 
 export function DataTable<TData extends object>({

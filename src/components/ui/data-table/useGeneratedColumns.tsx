@@ -1,17 +1,9 @@
 import { ColumnDef } from "@tanstack/react-table"
 import { TbCaretUpDownFilled } from "react-icons/tb"
-import { TableOptions } from "./DataTable"
+import { ColumnConfig, TableOptions } from "./DataTable"
 import { SquarePen, Trash2 } from "lucide-react"
 import { Button } from "@/components/primitives/button"
 import { ActionWithConfirmationPrompt } from "../confirmation-prompt/ConfirmationPrompt"
-
-export type ColumnConfig<T> = {
-  key: keyof T
-  header?: string
-  sortable?: boolean
-  canHide?: boolean
-  render?: (row: T) => React.ReactNode
-}
 
 export function useGeneratedColumns<T extends { id?: number }>(
   config: ColumnConfig<T>[],

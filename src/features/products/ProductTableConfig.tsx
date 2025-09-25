@@ -1,4 +1,4 @@
-import { ColumnConfig } from "@/components/ui/datatable/useGeneratedColums"
+import { ColumnConfig } from "@/components/ui"
 import { cn } from "@/lib/utils"
 import { ProductAvailabilityStatus } from "@/types/product"
 import { Product } from "@prisma/client"
