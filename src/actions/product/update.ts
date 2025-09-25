@@ -14,6 +14,7 @@ export const updateProduct = async (data: {
   id: number
 }) => {
   return actionWrapper<Product>(async (prisma) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { id, category, images, ...productData } = data
 
     const newImages = images.filter((img) => img instanceof File)
