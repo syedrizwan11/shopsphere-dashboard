@@ -1,10 +1,19 @@
 import { getAllUsers } from "@/actions"
+import { BreadCrumb, LargeHeading } from "@/components/ui"
+import { CustomersPage } from "@/features/customers"
 export const dynamic = "force-dynamic"
 const Customers = async () => {
   const result = await getAllUsers(1)
 
   if (!result.success) return <div>{result.error}</div>
-  return result.data.map((el) => <div key={el.id}>{el.name}</div>)
+
+  return (
+    <div>
+      <LargeHeading>Customers</LargeHeading>
+      <BreadCrumb />
+      <CustomersPage customers={result.data} />
+    </div>
+  )
 }
 
 export default Customers

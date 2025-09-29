@@ -9,3 +9,11 @@ export const getAllUsers = async (orgId: number) => {
     throw new Error("users not found")
   })
 }
+
+export const getUserById = async (id: number) => {
+  return actionWrapper<User>(async (prisma) => {
+    const user = await prisma.user.findUnique({ where: { id } })
+    if (user) return user
+    throw new Error("users not found")
+  })
+}

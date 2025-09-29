@@ -3,7 +3,7 @@ import { TbCaretUpDownFilled } from "react-icons/tb"
 import { ColumnConfig, TableOptions } from "./DataTable"
 import { SquarePen, Trash2 } from "lucide-react"
 import { Button } from "@/components/primitives/button"
-import { ActionWithConfirmationPrompt } from "../confirmation-prompt/ConfirmationPrompt"
+import { ActionWithConfirmationPrompt } from "../alerts/ConfirmationPrompt"
 
 export function useGeneratedColumns<T extends { id?: number }>(
   config: ColumnConfig<T>[],
