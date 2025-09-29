@@ -11,6 +11,7 @@ const models = {
   user: prisma.user,
   productCategory: prisma.productCategory,
   product: prisma.product,
+  transaction: prisma.transaction,
 }
 
 const main = async () => {

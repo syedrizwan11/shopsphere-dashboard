@@ -22,49 +22,81 @@ enum AvailabilityStatus {
   AVAILABLE
   OUT_OF_STOCK
 }
-model Organization {
-  OrganizationId Int @id @default(autoincrement())
-  name String @unique
-  users User[]
-  products Product[]
-  productCategories ProductCategory[]
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+
+enum PaymentStatus {
+  PAID
+  UNPAID
 }
+
+enum FulfillmentStatus {
+  COMPLETED
+  SHIPPING
+  CANCELLED
+}
+
+model Organization {
+  OrganizationId    Int               @id @default(autoincrement())
+  name              String            @unique
+  users             User[]
+  products          Product[]
+  productCategories ProductCategory[]
+  transactions      Transaction[]
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime          @updatedAt
+}
+
 model User {
-  id Int @id @default(autoincrement())
-  name String
-  email String @unique
-  role Role @default(USER)
-  orgId Int
-  organization Organization @relation(fields: [orgId], references: [OrganizationId])
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id           Int           @id @default(autoincrement())
+  name         String
+  email        String        @unique
+  role         Role          @default(USER)
+  orgId        Int
+  organization Organization  @relation(fields: [orgId], references: [OrganizationId])
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  transactions Transaction[]
 }
 
 model ProductCategory {
-  id Int @id @default(autoincrement())
-  name String
-  products Product[]
-  orgId Int
+  id           Int          @id @default(autoincrement())
+  name         String
+  products     Product[]
+  orgId        Int
   Organization Organization @relation(fields: [orgId], references: [OrganizationId])
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+
   @@unique([orgId, name])
 }
 
 model Product {
-  id Int @id @default(autoincrement())
-  name String
-  price Int
-  quantity Int
-  status AvailabilityStatus
-  description String
-  images String[]
-  productCategoryId  Int
-  productCategory ProductCategory @relation(fields: [productCategoryId], references: [id])
-  orgId Int
-  organization Organization @relation(fields: [orgId], references: [OrganizationId])
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id                Int                @id @default(autoincrement())
+  name              String
+  price             Int
+  quantity          Int
+  status            AvailabilityStatus
+  description       String
+  images            String[]
+  productCategoryId Int
+  productCategory   ProductCategory    @relation(fields: [productCategoryId], references: [id])
+  orgId             Int
+  organization      Organization       @relation(fields: [orgId], references: [OrganizationId])
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
+  transactions      Transaction[]
+}
+
+model Transaction {
+  id                Int               @id @default(autoincrement())
+  productId         Int
+  orgId             Int
+  userId            Int
+  price             Int
+  paymentStatus     PaymentStatus
+  fulfillmentStatus FulfillmentStatus
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime          @updatedAt
+  product           Product           @relation(fields: [productId], references: [id])
+  User              User              @relation(fields: [userId], references: [id])
+  organization      Organization      @relation(fields: [orgId], references: [OrganizationId])
 }
