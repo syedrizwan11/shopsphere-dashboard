@@ -2,7 +2,7 @@
 import { actionWrapper } from "@/lib/actionWrapper"
 import { FulfillmentStatus, PaymentStatus, Transaction } from "@prisma/client"
 
-export const createUser = async (data: {
+export const createTransaction = async (data: {
   productId: number
   userId: number
   price: number
