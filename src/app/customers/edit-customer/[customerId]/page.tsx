@@ -1,5 +1,5 @@
 import { getUserById } from "@/actions"
-import { BreadCrumb, ErrorAlert, LargeHeading } from "@/components/ui"
+import { ErrorAlert } from "@/components/ui"
 import { CustomerForm } from "@/features/customers"
 
 interface Props {
@@ -16,10 +16,8 @@ export default async function EditProductPage({ params }: Props) {
   }
 
   return (
-    <div>
-      <LargeHeading>Customers</LargeHeading>
-      <BreadCrumb />
+    <>
       <CustomerForm customer={result.data} />
-    </div>
+    </>
   )
 }
