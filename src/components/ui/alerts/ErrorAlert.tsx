@@ -34,7 +34,10 @@ export const ErrorAlert = ({
             {description || "Something went wrong. Please try again later."}
           </AlertDialogDescription>
         </AlertDialogHeader>
-        <AlertDialogFooter>
+        <AlertDialogFooter className="flex justify-end">
+          <AlertDialogAction onClick={() => router.back()}>
+            go Back
+          </AlertDialogAction>
           <AlertDialogAction
             onClick={() =>
               onActionButtonClick ? onActionButtonClick() : router.refresh()
