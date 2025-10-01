@@ -1,7 +1,6 @@
 import { ColumnConfig } from "@/components/ui"
 import { cn } from "@/lib/utils"
-import { ProductAvailabilityStatus } from "@/types/product"
-import { Product } from "@prisma/client"
+import { AvailabilityStatus, Product } from "@prisma/client"
 import Image from "next/image"
 
 export const productColumnsConfig = [
@@ -40,13 +39,13 @@ export const productColumnsConfig = [
     render: (p: Product) => (
       <div
         className={cn(
-          "rounded-xl p-1 px-3 w-fit",
-          p.status === "AVAILABLE"
+          "rounded-xl p-1 px-3 w-fit capitalize",
+          p.status === AvailabilityStatus.AVAILABLE
             ? "bg-green-300 text-green-800"
             : "bg-red-300 text-red-700"
         )}
       >
-        {ProductAvailabilityStatus[p.status]}
+        {p.status.toLowerCase()}
       </div>
     ),
     canHide: true,

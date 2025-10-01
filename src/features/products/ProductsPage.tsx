@@ -3,9 +3,8 @@ import { BreadCrumb, DataTable } from "@/components/ui"
 import { Product } from "@prisma/client"
 import { productColumnsConfig } from "./productTableConfig"
 import { deleteProduct } from "@/actions/product/delete"
-import { useState } from "react"
-import { errorToast } from "@/lib/toast"
 import { useRouter } from "next/navigation"
+import { useOptimisticDelete } from "@/hooks/useOptimisticDelete"
 
 interface ProductsPageProps {
   products: Product[]
@@ -15,19 +14,11 @@ export const ProductsPage = ({
   products,
   productCategory,
 }: ProductsPageProps) => {
-  const [productsData, setProductsData] = useState(products)
+  const { data: productsData, handleDeleteRecord } = useOptimisticDelete(
+    products,
+    deleteProduct
+  )
   const router = useRouter()
-
-  const handleDeleteRecord = async (row: Product) => {
-    const prevData = productsData
-
-    setProductsData((prev) => prev.filter((p) => p.id !== row.id))
-    const res = await deleteProduct(row.id!)
-    if (!res.success) {
-      errorToast("Error In Deleting This Product", res.error)
-      setProductsData([...prevData])
-    }
-  }
 
   return (
     <div>
