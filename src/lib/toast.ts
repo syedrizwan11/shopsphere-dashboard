@@ -15,7 +15,7 @@ const successToast = (message: string) =>
       label: "Okay",
       onClick: () => console.log("Undo"),
     },
-    actionButtonStyle: { background: "#f8a0a0ff", color: "black" },
+    actionButtonStyle: { background: "#9df58bff", color: "black" },
   })
 
 export { errorToast, successToast }

@@ -3,72 +3,96 @@
     "name": "Alice Khan",
     "email": "alice.khan@gmail.com",
     "role": "USER",
-    "orgId": 1
+    "orgId": 1,
+    "contact": "+92 300 1234567",
+    "address": "House 21, DHA Phase 5, Lahore"
   },
   {
     "name": "Bilal Ahmed",
     "email": "bilal.ahmed@gmail.com",
     "role": "USER",
-    "orgId": 1
+    "orgId": 1,
+    "contact": "+92 333 6543210",
+    "address": "Street 8, G-11/3, Islamabad"
   },
   {
     "name": "Sana Malik",
     "email": "sana.malik@gmail.com",
     "role": "USER",
-    "orgId": 1
+    "orgId": 1,
+    "contact": "+92 321 9876543",
+    "address": "Block 7, Clifton, Karachi"
   },
   {
     "name": "Hassan Raza",
     "email": "hassan.raza@gmail.com",
     "role": "USER",
-    "orgId": 1
+    "orgId": 1,
+    "contact": "+92 345 1239876",
+    "address": "Main Boulevard, Gulberg III, Lahore"
   },
   {
     "name": "Mariam Ali",
     "email": "mariam.ali@gmail.com",
     "role": "USER",
-    "orgId": 1
+    "orgId": 1,
+    "contact": "+92 301 4567890",
+    "address": "Street 15, Model Town, Multan"
   },
   {
     "name": "Zain Iqbal",
     "email": "zain.iqbal@gmail.com",
     "role": "USER",
-    "orgId": 1
+    "orgId": 1,
+    "contact": "+92 334 2223344",
+    "address": "Sector C, Bahria Town, Lahore"
   },
   {
     "name": "Noor Fatima",
     "email": "noor.fatima@gmail.com",
     "role": "USER",
-    "orgId": 1
+    "orgId": 1,
+    "contact": "+92 302 7778889",
+    "address": "Block A, Satellite Town, Rawalpindi"
   },
   {
     "name": "Ahmed Khan",
     "email": "ahmed.khan@gmail.com",
     "role": "USER",
-    "orgId": 1
+    "orgId": 1,
+    "contact": "+92 300 5556677",
+    "address": "Main University Road, Peshawar"
   },
   {
     "name": "Hiba Shah",
     "email": "hiba.shah@gmail.com",
     "role": "USER",
-    "orgId": 1
+    "orgId": 1,
+    "contact": "+92 335 9988776",
+    "address": "Gulshan-e-Iqbal Block 13D, Karachi"
   },
   {
     "name": "Tariq Mehmood",
     "email": "tariq.mehmood@gmail.com",
     "role": "USER",
-    "orgId": 1
+    "orgId": 1,
+    "contact": "+92 303 1122334",
+    "address": "Faisal Town, Lahore"
   },
   {
     "name": "Sara Yousaf",
     "email": "sara.yousaf@gmail.com",
     "role": "ADMIN",
-    "orgId": 1
+    "orgId": 1,
+    "contact": "+92 322 6677889",
+    "address": "Blue Area, Islamabad"
   },
   {
     "name": "Omar Siddiqui",
     "email": "omar.siddiqui@gmail.com",
     "role": "ADMIN",
-    "orgId": 1
+    "orgId": 1,
+    "contact": "+92 336 8899001",
+    "address": "PECHS Block 6, Karachi"
   }
 ]

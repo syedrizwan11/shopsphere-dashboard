@@ -1,12 +1,13 @@
 "use server"
 import { actionWrapper } from "@/lib/actionWrapper"
-import { Role, User } from "@prisma/client"
+import { User } from "@prisma/client"
 
 export const updateUser = async (data: {
   id: number
   name: string
   email: string
-  role: Role
+  contact: string
+  address: string
 }) => {
   return actionWrapper<User>(async (prisma) => {
     const { id, ...userData } = data

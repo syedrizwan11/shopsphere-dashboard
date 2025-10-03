@@ -29,7 +29,8 @@ export const CustomerForm = ({ customer }: formProps) => {
     defaultValues: {
       name: customer?.name ?? "",
       email: customer?.email ?? "",
-      role: customer?.role ?? "USER",
+      contact: customer?.contact ?? "",
+      address: customer?.address ?? "",
     },
   })
 
@@ -80,11 +81,18 @@ export const CustomerForm = ({ customer }: formProps) => {
             formControl={form.control}
           />
 
-          <FormSelect
-            name="role"
-            label="Role"
+          <FormInput
+            name="contact"
+            label="Contact"
+            type="text"
             formControl={form.control}
-            selectableOptions={Object.keys(Role)}
+          />
+
+          <FormInput
+            name="address"
+            label="Address"
+            type="textarea"
+            formControl={form.control}
           />
 
           <Button type="submit" className="w-full">
