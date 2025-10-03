@@ -19,7 +19,7 @@ export const CustomerTableConfig = [
     render: (u: User) => (
       <div>
         <div>{u.email}</div>
-        <div>{u.contact}</div>
+        <div>+{u.contact}</div>
       </div>
     ),
     sortable: true,
