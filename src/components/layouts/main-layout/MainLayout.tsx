@@ -1,5 +1,5 @@
 import { ReactNode } from "react"
-import { MainLayoutShell } from "./MainLayoutShell"
+import { MainLayoutSkeleton } from "./MainLayoutSkeleton"
 import { getAllProductCategories } from "@/actions"
 import { type NavItem, navSections } from "@/config/navigation"
 
@@ -30,9 +30,9 @@ export const MainLayout = async ({ children }: { children: ReactNode }) => {
 
   return (
     <div>
-      <MainLayoutShell navSections={updatedNavSections}>
+      <MainLayoutSkeleton navSections={updatedNavSections}>
         {children}
-      </MainLayoutShell>
+      </MainLayoutSkeleton>
     </div>
   )
 }

@@ -4,7 +4,7 @@ import { SideBar } from "../sidebar"
 import { TopBar } from "../topbar/TopBar"
 import { INavSection } from "@/config/navigation"
 
-export const MainLayoutShell = ({
+export const MainLayoutSkeleton = ({
   children,
   navSections,
 }: {

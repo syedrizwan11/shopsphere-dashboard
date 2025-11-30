@@ -4,14 +4,8 @@ import { customerSchema } from "./customer.schema"
 import { Button } from "@/components/primitives/button"
 import { Form } from "@/components/primitives/form"
 import { useForm } from "react-hook-form"
-import {
-  FormInput,
-  FormSelect,
-  LargeHeading,
-  SmallText,
-  Loader,
-} from "@/components/ui"
-import { Role, User } from "@prisma/client"
+import { FormInput, LargeHeading, SmallText, Loader } from "@/components/ui"
+import { User } from "@prisma/client"
 import { toast } from "sonner"
 import { useRouter } from "next/navigation"
 import { ApiResponse } from "@/types"

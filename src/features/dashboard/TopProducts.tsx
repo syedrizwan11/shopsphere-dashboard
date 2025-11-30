@@ -1,7 +1,6 @@
 "use client"
-import { SummaryCardHeader } from "@/components/ui"
+import { ColumnConfig, SummaryCardHeader } from "@/components/ui"
 import { DataTable } from "@/components/ui/data-table"
-import { ColumnConfig } from "@/components/ui/data-table/useGeneratedColumns"
 import { cn } from "@/lib/utils"
 import Image from "next/image"
 
