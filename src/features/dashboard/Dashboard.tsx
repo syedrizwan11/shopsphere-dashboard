@@ -78,8 +78,8 @@ export const Dashboard = () => {
             <StatCard
               className="grow-1"
               text="Total Customers"
-              value="$81.0"
-              percentage={2000}
+              value="200"
+              percentage={20}
               isTrendingUp
             />
           </div>
@@ -87,14 +87,13 @@ export const Dashboard = () => {
             <StatCard
               className="grow-1"
               text="Total Transactions"
-              value="$81.0"
-              percentage={6000}
-              isTrendingUp
+              value="600"
+              percentage={30}
             />
             <StatCard
               className="grow-1"
               text="Total Products"
-              value="$81.0"
+              value="60"
               percentage={60}
               isTrendingUp
             />
