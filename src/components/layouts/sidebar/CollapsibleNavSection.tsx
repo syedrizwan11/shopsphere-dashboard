@@ -5,7 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/primitives/accordion"
-import { NavSectionProps } from "./navSection"
+import { NavSectionProps } from "./NavSection"
 import { NavItem } from "@/config/navigation"
 import Link from "next/link"
 import { usePathname } from "next/navigation"

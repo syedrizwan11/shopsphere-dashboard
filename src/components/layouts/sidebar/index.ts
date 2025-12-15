@@ -1,5 +1,5 @@
-export { NavSection } from "./navSection"
+export { NavSection } from "./NavSection"
 export { CollapsibleNavSection } from "./CollapsibleNavSection"
 export { UserCompanyInfo } from "./UserCompanyInfo"
 export { SideBar } from "./SideBar"
-export { SideBarNavSectionContainer } from "./SideBarNavSectionContainer"
+export { NavSectionContainer } from "./NavSectionContainer"

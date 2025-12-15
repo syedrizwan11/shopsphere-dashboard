@@ -1,5 +1,5 @@
 import { ToggleNightMode } from "@/components/ui"
-import { SideBarNavSectionContainer, UserCompanyInfo } from "."
+import { NavSectionContainer, UserCompanyInfo } from "."
 import { type INavSection } from "@/config/navigation"
 import { cn } from "@/lib/utils"
 import { UserInfoBadge } from "@/components/ui/user-info-badge/UserInfoBadge"
@@ -25,7 +25,7 @@ export const SideBar = ({ expandedSideBar, navSections }: SideBarProps) => {
         <div className="flex flex-col justify-between">
           <nav className="flex-1 mt-6">
             {navSections.map((section, idx) => (
-              <SideBarNavSectionContainer
+              <NavSectionContainer
                 key={`${section.title}-${idx}`}
                 section={section}
                 expanded={expandedSideBar}

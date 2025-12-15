@@ -1,6 +1,6 @@
 import { INavSection } from "@/config/navigation"
 import { CollapsibleNavSection } from "./CollapsibleNavSection"
-import { NavSection } from "./navSection"
+import { NavSection } from "./NavSection"
 import { iconMap } from "@/constants/icons"
 
 interface SidebarSectionProps {
@@ -8,7 +8,7 @@ interface SidebarSectionProps {
   expanded: boolean
 }
 
-export const SideBarNavSectionContainer = ({
+export const NavSectionContainer = ({
   section,
   expanded,
 }: SidebarSectionProps) => (

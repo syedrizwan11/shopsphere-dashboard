@@ -77,25 +77,25 @@ export const Dashboard = () => {
             />
             <StatCard
               className="grow-1"
-              text="Total Revenue"
+              text="Total Customers"
               value="$81.0"
-              percentage={10.6}
+              percentage={2000}
               isTrendingUp
             />
           </div>
           <div className="flex sm:flex-row flex-col items-stretch gap-3">
             <StatCard
               className="grow-1"
-              text="Total Revenue"
+              text="Total Transactions"
               value="$81.0"
-              percentage={10.6}
+              percentage={6000}
               isTrendingUp
             />
             <StatCard
               className="grow-1"
-              text="Total Revenue"
+              text="Total Products"
               value="$81.0"
-              percentage={10.6}
+              percentage={60}
               isTrendingUp
             />
           </div>
