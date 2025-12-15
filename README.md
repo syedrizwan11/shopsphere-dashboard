@@ -1,5 +1,10 @@
 🚧 This project is currently under active development. Features and UI are subject to change.
 
+# ShopSphere – E-commerce Admin Dashboard
+
+ShopSphere is a modern e-commerce admin dashboard designed to manage products, customers, transactions, and sales analytics.
+It provides real-time insights such as revenue tracking, sales targets, customer growth, and product performance through interactive charts and reports.
+
 ## Getting Started
 
 First, run the development server:
